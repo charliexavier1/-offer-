@@ -1,0 +1,35 @@
+【暴力求解】遍历二维数组
+from typing import List
+class Solution:
+    def findNumberIn2DArray(self, matrix: List[List[int]], target: int) -> bool:
+        if matrix == None or len(matrix) == 0 or len(matrix[0]) == 0:
+            return False
+        rows = len(matrix)
+        columns =len(matrix[0])
+        for i in range(rows):
+            for j in range(columns):
+                if matrix[i][j] == target : return True
+        else:
+            return False
+
+【右上角值为基点比较】
+a = Solution()
+print(a.findNumberIn2DArray([[1,4,7,11,15],[2,5,8,12,19],[3,6,9,16,22],[10,13,14,17,24],[18,21,23,26,30]], 5))
+
+class Solution:
+    def findNumberIn2DArray(self, matrix: List[List[int]], target: int) -> bool:
+        if matrix == None or len(matrix) == 0 or len(matrix[0]) == 0:
+            return False
+        rows = len(matrix)
+        columns =len(matrix[0])
+        i = 0
+        j = columns - 1
+        while i < rows and j >= 0:
+            if target == matrix[i][j]:
+                return True
+                break
+            elif target > matrix[i][j]:
+                i += 1
+            else:
+                j -= 1
+        return False
