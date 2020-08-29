@@ -1,0 +1,25 @@
+【新建列表存结果】在 Python 和 Java 等语言中，字符串都被设计成不可变的类型，即无法直接修改字符串的某一位字符，需要新建一个字符串实现。
+class Solution:
+    def replaceSpace(self, s: str) -> str:
+        res = []
+        for i in s:
+            if i == ' ':res.append("%20")
+            else:
+                res.append(i)
+        return "".join(res)
+        
+【新建字符存结果】
+class Solution:
+    def replaceSpace(self, s: str) -> str:
+        res = ''
+        for i in s:
+            if i == ' ':
+                res += '%20'
+            else:
+                res += i
+        return res
+        
+【一行代码replace】
+class Solution:
+    def replaceSpace(self, s: str) -> str:
+        return s.replace(" ", "%20")
